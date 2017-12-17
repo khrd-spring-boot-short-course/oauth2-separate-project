@@ -14,19 +14,23 @@ import com.fasterxml.jackson.databind.JsonNode;
 @RestController
 public class UserController {
 
-	@Autowired
-	private OAuth2RestOperations restTemplate;
+	private OAuth2RestOperations oAuth2RestOperations;
+	private ApiURL apiURL;
 
 	@Autowired
-	private ApiURL apiURL;
+	public UserController(OAuth2RestOperations oAuth2RestOperations, ApiURL apiURL) {
+		this.oAuth2RestOperations = oAuth2RestOperations;
+		this.apiURL = apiURL;
+	}
 
 	@RequestMapping("/")
 	public JsonNode home() {
-		return restTemplate.getForObject(apiURL.resource, JsonNode.class);
+		return oAuth2RestOperations.getForObject(apiURL.resource, JsonNode.class);
 	}
 
 	@GetMapping("/access_token")
 	public OAuth2AccessToken oAuth2AccessToken(){
-		return restTemplate.getAccessToken();
+		return oAuth2RestOperations.getAccessToken();
 	}
+
 }

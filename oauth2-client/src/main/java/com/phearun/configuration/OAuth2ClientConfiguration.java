@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
@@ -21,7 +22,7 @@ public class OAuth2ClientConfiguration {
     private ClientDetails clientDetails;
 
     @Bean
-    public OAuth2RestOperations restTemplate(OAuth2ClientContext oauth2ClientContext) {
+    public OAuth2RestOperations oAuth2RestOperations(OAuth2ClientContext oauth2ClientContext) {
         return new OAuth2RestTemplate(resource(), oauth2ClientContext);
     }
 
@@ -34,4 +35,5 @@ public class OAuth2ClientConfiguration {
         resource.setScope(Arrays.asList("read"));
         return resource;
     }
+
 }

@@ -11,11 +11,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/messages")
 public class MessageController {
 
-    @Autowired
-    OAuth2RestOperations oAuth2RestOperations;
+    private OAuth2RestOperations oAuth2RestOperations;
+    private ApiURL apiURL;
 
     @Autowired
-    private ApiURL apiURL;
+    public MessageController(OAuth2RestOperations oAuth2RestOperations, ApiURL apiURL) {
+        this.oAuth2RestOperations = oAuth2RestOperations;
+        this.apiURL = apiURL;
+    }
 
     @RequestMapping
     public JsonNode findAll(){
