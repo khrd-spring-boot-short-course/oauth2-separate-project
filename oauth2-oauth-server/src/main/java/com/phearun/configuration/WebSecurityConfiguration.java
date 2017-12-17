@@ -19,7 +19,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth
         	.inMemoryAuthentication()
             	.withUser("user").password("user").roles("USER").and()
-                .withUser("admin").password("user").roles("USER", "ADMIN")
+                .withUser("admin").password("admin").roles("USER", "ADMIN")
         ;
     }
 

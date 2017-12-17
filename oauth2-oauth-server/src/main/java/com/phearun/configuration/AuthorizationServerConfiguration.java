@@ -85,7 +85,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .authorizedGrantTypes("client_credentials", "authorization_code", "refresh_token")
                 .scopes("read", "write")
                 .redirectUris("http://localhost:8080/client/")
-                .autoApprove(true)
+                .autoApprove(false)
                 .and()
                 
                 //TODO: Public client where client secret is vulnerable (e.g. mobile apps, browsers)
@@ -102,7 +102,10 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .authorizedGrantTypes("client_credentials", "password", "authorization_code", "refresh_token")
                 .scopes("read", "write")
                 .redirectUris("http://localhost:8080/client/")
+                .accessTokenValiditySeconds(120)
+                .refreshTokenValiditySeconds(360)
                 .autoApprove(false)
         ;
     }
 }
+
