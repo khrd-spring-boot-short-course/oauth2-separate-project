@@ -8,10 +8,14 @@ security:
 
 config:
     oauth2:
-        clientID: trusted
+        
+        #ClientDetails
+        clientID: confidential
         clientSecret: secret
         accessTokenUri: http://localhost:8081/oauth/token
         userAuthorizationUri: http://localhost:8081/oauth/authorize
+        
+        # Resources URI
         resourceURI: http://localhost:8082/api/
         messageURI: http://localhost:8082/api/private/messages
         publicMessageURI: http://localhost:8082/api/public/messages

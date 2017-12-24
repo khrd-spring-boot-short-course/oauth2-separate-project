@@ -1,14 +1,14 @@
 package com.phearun;
 
-import com.phearun.model.Message;
-import com.phearun.repository.MessageRepository;
+import java.util.Arrays;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.validation.MessageCodesResolver;
 
-import java.util.Arrays;
+import com.phearun.model.Message;
+import com.phearun.repository.MessageRepository;
 
 @SpringBootApplication
 public class Oauth2ResourceServerApplication implements ApplicationRunner{

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Confirm Access</title>
+</head>
+<body>
+	<h1>Custom OAuth Approval</h1>
+	<p th:inline="text">Do you authorize '[[${clientAuth.clientId}]]' app to access your protected resources?</p>
+	
+	<label>scope:</label>
+	<ul>
+		<li th:each="s: ${clientAuth.scope}" th:text="${s}"></li>
+	</ul>
+	
+	<form action='/oauth/authorize' method='post'>
+		<input name='user_oauth_approval' value='true' type='hidden' />
+		<input name='authorize' value='Authorize' type='submit' />
+	</form>
+	
+	<form action='/oauth/authorize' method='post'>
+		<input name='user_oauth_approval' value='false' type='hidden' />
+		<input name='deny' value='Deny' type='submit' />
+	</form>
+	
+</body>
+</html>

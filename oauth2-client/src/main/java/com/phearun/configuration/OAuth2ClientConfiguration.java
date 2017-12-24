@@ -1,6 +1,7 @@
 package com.phearun.configuration;
 
-import com.phearun.configuration.component.ClientDetails;
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,9 +11,8 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
+import com.phearun.configuration.component.ClientDetails;
 
 @Configuration
 @EnableOAuth2Client
@@ -32,7 +32,7 @@ public class OAuth2ClientConfiguration {
         resource.setClientSecret(clientDetails.clientSecret);
         resource.setAccessTokenUri(clientDetails.accessTokenUri);
         resource.setUserAuthorizationUri(clientDetails.userAuthorizationUri);
-        resource.setScope(Arrays.asList("read"));
+        resource.setScope(Arrays.asList("read", "write"));
         return resource;
     }
 

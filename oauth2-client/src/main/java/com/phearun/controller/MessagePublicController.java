@@ -1,15 +1,14 @@
 package com.phearun.controller;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.phearun.configuration.component.ApiURL;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.oauth2.client.OAuth2RestOperations;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.phearun.configuration.component.ApiURL;
 
 @RestController
 @RequestMapping("/public/messages")
