@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 
-    @RequestMapping("/")
+    @RequestMapping("/me")
     public Principal resource(Principal principal) {
         return principal;
     }

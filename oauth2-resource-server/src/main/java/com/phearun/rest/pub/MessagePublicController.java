@@ -1,3 +1,4 @@
+/*
 package com.phearun.rest.pub;
 
 
@@ -28,3 +29,4 @@ public class MessagePublicController {
     }
 
 }
+*/

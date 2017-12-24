@@ -1,4 +1,4 @@
-package com.phearun.controller;
+package com.phearun.controller.pub;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

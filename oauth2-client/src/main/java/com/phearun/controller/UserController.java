@@ -22,7 +22,7 @@ public class UserController {
 		this.apiURL = apiURL;
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("/me")
 	public JsonNode home() {
 		return oAuth2RestOperations.getForObject(apiURL.resource, JsonNode.class);
 	}

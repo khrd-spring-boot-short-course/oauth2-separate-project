@@ -3,6 +3,7 @@ package com.phearun.configuration;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
@@ -22,7 +23,7 @@ public class OAuth2ClientConfiguration {
     private ClientDetails clientDetails;
 
     @Bean
-    public OAuth2RestOperations oAuth2RestOperations(OAuth2ClientContext oauth2ClientContext) {
+    public OAuth2RestOperations oAuth2RestOperations(@Qualifier("oauth2ClientContext") OAuth2ClientContext oauth2ClientContext) {
         return new OAuth2RestTemplate(resource(), oauth2ClientContext);
     }
 
@@ -32,7 +33,8 @@ public class OAuth2ClientConfiguration {
         resource.setClientSecret(clientDetails.clientSecret);
         resource.setAccessTokenUri(clientDetails.accessTokenUri);
         resource.setUserAuthorizationUri(clientDetails.userAuthorizationUri);
-        resource.setScope(Arrays.asList("read", "write"));
+        //resource.setScope(Arrays.asList("read", "write"));
+        resource.setScope(Arrays.asList("trust"));
         return resource;
     }
 
