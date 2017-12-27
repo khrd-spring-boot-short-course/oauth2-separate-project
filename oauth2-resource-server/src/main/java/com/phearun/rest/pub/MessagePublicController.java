@@ -1,6 +1,4 @@
-/*
 package com.phearun.rest.pub;
-
 
 import com.phearun.model.Message;
 import com.phearun.repository.MessageRepository;
@@ -12,21 +10,20 @@ import java.util.List;
 @RequestMapping("/public/messages")
 public class MessagePublicController {
 
-    private MessageRepository messageRepository;
+	private MessageRepository messageRepository;
 
-    public MessagePublicController(MessageRepository messageRepository) {
-        this.messageRepository = messageRepository;
-    }
+	public MessagePublicController(MessageRepository messageRepository) {
+		this.messageRepository = messageRepository;
+	}
 
-    @RequestMapping
-    public List<Message> findAll(){
-        return messageRepository.findAll();
-    }
+	@RequestMapping
+	public List<Message> findAll() {
+		return messageRepository.findAll();
+	}
 
-    @GetMapping("/{id}")
-    public Message findMessage(@PathVariable Integer id){
-        return messageRepository.findOne(id);
-    }
+	@GetMapping("/{id}")
+	public Message findMessage(@PathVariable Integer id) {
+		return messageRepository.findOne(id);
+	}
 
 }
-*/

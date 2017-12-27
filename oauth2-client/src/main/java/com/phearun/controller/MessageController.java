@@ -22,10 +22,10 @@ public class MessageController {
         this.oAuth2RestOperations = oAuth2RestOperations;
         this.apiURL = apiURL;
     }
-
+    
     @RequestMapping
     public JsonNode findAll(){
-        return oAuth2RestOperations.getForObject(apiURL.message, JsonNode.class);
+    	return oAuth2RestOperations.getForObject(apiURL.message, JsonNode.class);
     }
 
     @PostMapping
@@ -34,3 +34,4 @@ public class MessageController {
         return oAuth2RestOperations.postForObject(apiURL.message, message, JsonNode.class);
     }
 }
+
