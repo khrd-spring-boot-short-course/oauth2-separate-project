@@ -30,8 +30,13 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 		CustomUserDetail user = (CustomUserDetail) authentication.getPrincipal();
 		
 		//TODO: Setting up ResourceOwnerPasswordCredential
-		//oAuth2RestOperations.getOAuth2ClientContext().getAccessTokenRequest().set("username", "user");
-    	//oAuth2RestOperations.getOAuth2ClientContext().getAccessTokenRequest().set("password", "user");
-	}
+		oAuth2RestOperations.getOAuth2ClientContext().getAccessTokenRequest().set("username", user.getUsername());
+    	oAuth2RestOperations.getOAuth2ClientContext().getAccessTokenRequest().set("password", user.getPassword());
 
+    	//TODO: initialize request to make it remembers the request
+		JsonNode jsonNode = oAuth2RestOperations.getForObject("http://localhost:8082/api/private/messages", JsonNode.class);
+		System.out.println(jsonNode);
+
+		response.sendRedirect(request.getContextPath());
+	}
 }

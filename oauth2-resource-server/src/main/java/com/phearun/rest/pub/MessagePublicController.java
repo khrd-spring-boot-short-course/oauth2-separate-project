@@ -1,3 +1,4 @@
+/*
 package com.phearun.rest.pub;
 
 import com.phearun.model.Message;
@@ -27,3 +28,4 @@ public class MessagePublicController {
 	}
 
 }
+*/

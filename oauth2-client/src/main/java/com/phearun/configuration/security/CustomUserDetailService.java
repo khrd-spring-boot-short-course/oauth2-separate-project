@@ -1,4 +1,4 @@
-/*package com.phearun.configuration.security;
+package com.phearun.configuration.security;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,4 +21,3 @@ public class CustomUserDetailService implements UserDetailsService {
 	}
 
 }
-*/

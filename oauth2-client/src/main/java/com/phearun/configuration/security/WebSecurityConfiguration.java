@@ -14,41 +14,35 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableWebSecurity
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 
-	/*@Autowired
+	@Autowired
 	private UserDetailsService userDetailsService;
 	
 	@Autowired
 	private AuthenticationSuccessHandler successHandler;
-*/
-	/*@Override
+
+	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
-	}*/
+	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.csrf().disable()
 			.formLogin()
-				.loginPage("/login")
-				.usernameParameter("username")
-				.passwordParameter("password")
-				.loginProcessingUrl("/login")
-			//.successHandler(successHandler)
-				.and()
-				
+				.successHandler(successHandler)
+			.and()
 			.authorizeRequests()
-			.anyRequest().authenticated()
+				.anyRequest()
+				.authenticated()
 		;
 	}
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring()
-			.antMatchers("/")
+			.antMatchers("/**")
 			.antMatchers("/public/**")
-			.antMatchers("/login")
-			//.antMatchers("/mylogin")
 		;
 	}
 	
